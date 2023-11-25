@@ -1,0 +1,29 @@
+### List Events
+
+GET https://eventmakers-api.vercel.app/api/event
+
+### Single Event
+
+GET https://eventmakers-api.vercel.app/api/event/f4563880-81de-457d-bf19-9ccaf181f1f8
+
+### Create Event
+
+POST https://eventmakers-api.vercel.app/api/event
+
+{
+    "name": "Gathering of the Stars",
+    "description": "Lezzgoo",
+    "location": "Milky Way Galaxy",
+    "date": "2023-11-23",
+    "authorId": "d0ef327c-e6c9-4bb3-8fd2-f8b83171f91a"
+}
+
+### Join Event
+POST https://eventmakers-api.vercel.app/api/join-event
+
+{
+    "name": "Bintang di Langit",
+    "email": "bintangjos@gmail.com",
+    "phone": "085745641231",
+    "eventId": "6f0701e1-d61c-446c-ab04-9503a56ef46d"
+}

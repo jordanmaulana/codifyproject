@@ -1,0 +1,19 @@
+### Register User
+
+POST https://eventmakers-api.vercel.app/api/auth/register
+
+{
+    "name" : "Bintang",
+    "email":"bintangjos@gmail.com",
+    "password": "123456"
+}
+
+### Login User
+
+POST https://eventmakers-api.vercel.app/api/auth/login
+
+{
+    "email":"bintangjos@gmail.com",
+    "password": "123456"
+}
+

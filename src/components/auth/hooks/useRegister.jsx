@@ -23,8 +23,23 @@ export const useRegister = () => {
 
   async function handleSubmitRegister() {
     // Problem ada di backend
-    setLoading(true);
     const { name, email, password } = registerData;
+    let error = "";
+    console.log(name);
+    console.log(email);
+    console.log(password);
+
+    if (!name) error += "Name must not be empty\n";
+    if (!email) error += "Email must not be empty\n";
+    if (!password) error += "Password must not be empty";
+
+    if (error) {
+      alert(error);
+      return { loading, handleChange, handleSubmitRegister };
+    }
+
+    setLoading(true);
+
     const res = await fetch(`${API_URL}/register`, {
       method: "POST",
       headers: {

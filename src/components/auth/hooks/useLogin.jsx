@@ -14,6 +14,10 @@ export const useLogin = () => {
     password: "",
   });
 
+  const [isVisible, setIsVisible] = useState(false);
+
+  const toggleVisibility = () => setIsVisible(!isVisible);
+
   function handleChange(e) {
     const { name, value } = e.target;
     setLoginData({ ...loginData, [name]: value });
@@ -43,5 +47,11 @@ export const useLogin = () => {
     setTimeout(() => router.push("/dashboard"), 2000);
   }
 
-  return { loading, handleChange, handleSubmitLogin };
+  return {
+    loading,
+    handleChange,
+    handleSubmitLogin,
+    toggleVisibility,
+    isVisible,
+  };
 };

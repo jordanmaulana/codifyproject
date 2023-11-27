@@ -35,7 +35,7 @@ export const useRegister = () => {
 
     if (error) {
       alert(error);
-      return { loading, handleChange, handleSubmitRegister };
+      return;
     }
 
     setLoading(true);

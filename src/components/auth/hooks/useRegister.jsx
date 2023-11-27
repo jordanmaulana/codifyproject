@@ -15,14 +15,9 @@ export const useRegister = () => {
   function handleChange(e) {
     const { name, value } = e.target;
     setRegisterData({ ...registerData, [name]: value });
-    // ... => spread operator
-    // registerData.name
-    // registerData["password"]: e.target.value
-    // DRY - DONT REPEAT YOURSELF
   }
 
   async function handleSubmitRegister() {
-    // Problem ada di backend
     const { name, email, password } = registerData;
     let error = "";
     console.log(name);

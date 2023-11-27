@@ -9,7 +9,7 @@ export default function middleware(request) {
     return NextResponse.next();
   }
 
-  return NextResponse.redirect(new URL("/login", request.url));
+  return NextResponse.redirect(new URL("/register", request.url));
 }
 
 export const config = {

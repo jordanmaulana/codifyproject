@@ -15,37 +15,6 @@ export const Card = ({ id,
     participants,
     author }) => {
   const router = useRouter();
-  
-
-  async function handleDelete() {
-    var result = confirm("Want to delete?");
-    if (result) {
-        //Logic to delete the item
-        /* await fetch(`https://v1.appbackend.io/v1/rows/ZcxAwFXEUdKr`, {
-        method: "DELETE",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify([`${id}`])
-        });
-        router.refresh(); */
-    }
-    
-  }
-
-  async function handleUpdate() {
-    /* const res = await fetch(`https://v1.appbackend.io/v1/rows/ZcxAwFXEUdKr`, {
-        method: "PUT",
-        headers: {
-              'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({"_id":`${id}`,"name":`${name}`,"tanggal":`${tanggal}`,"jenis":`${jenis}`,"keterangan":currentDesc})
-      //body: JSON.stringify({ content: currentContent }),
-    });
-    const data = await res.json();
-    setOnEdit(false); */
-    router.refresh();
-  }
 
   return (
     <div>

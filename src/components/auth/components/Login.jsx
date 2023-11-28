@@ -29,7 +29,12 @@ export const Login = () => {
         </div>
       </div>
       <h1 className="text-lg font-semibold">Log in</h1>
-      <Input name="email" type="email" label="Email Address" />
+      <Input
+        name="email"
+        type="email"
+        label="Email Address"
+        onChange={handleChange}
+      />
       <Input
         name="password"
         label="Password"

@@ -2,8 +2,7 @@ import { Card } from "@/components/Card";
 
 async function getEvents(){
   const res = await fetch("https://eventmakers-api.vercel.app/api/event",{
-    //cache: "no-store",  
-    cache: "force-cache",
+    cache: "no-store"
   });
   const result = await res.json();
   //console.log(result);

@@ -34,7 +34,6 @@ export const useLogin = () => {
       body: JSON.stringify({ email, password }),
     });
     const data = await res.json();
-    console.log(`token ${data.token}`);
     Cookies.set("token", data.token);
 
     if (!data) {

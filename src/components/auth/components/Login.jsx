@@ -1,10 +1,11 @@
 "use client";
 
-import { Button, Input } from "@nextui-org/react";
+import { Input } from "@nextui-org/react";
 import Link from "next/link";
 import { useLogin } from "../hooks/useLogin";
 import { Eye, EyeOff } from "lucide-react";
 import Image from "next/image";
+import { GradientButton } from "@/components/shared-ui/Gradientbutton";
 
 export const Login = () => {
   const {
@@ -28,7 +29,12 @@ export const Login = () => {
         </div>
       </div>
       <h1 className="text-lg font-semibold">Log in</h1>
-      <Input name="email" type="email" label="Email Address" />
+      <Input
+        name="email"
+        type="email"
+        label="Email Address"
+        onChange={handleChange}
+      />
       <Input
         name="password"
         label="Password"
@@ -44,13 +50,12 @@ export const Login = () => {
         }
         type={isVisible ? "text" : "password"}
       />
-      <Button
+      <GradientButton
         isDisabled={loading}
-        className="bg-gradient-to-br from-pink to-purple text-white"
-        onClick={handleSubmitLogin}
-      >
-        Login
-      </Button>
+        clicked={handleSubmitLogin}
+        title={"Login"}
+      />
+
       <div className="flex gap-1 text-sm">
         <div>Don't have an account ?</div>
         <Link href="/register" className="text-blue-600 underline">

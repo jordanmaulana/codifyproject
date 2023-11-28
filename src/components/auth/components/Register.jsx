@@ -5,7 +5,7 @@ import React from "react";
 import Link from "next/link";
 import { useRegister } from "../hooks/useRegister";
 import Image from "next/image";
-import { GradientButton } from "@/components/shared-ui/Gradientbutton";
+import { GradientButton } from "@/components/shared-ui/GradientButton";
 
 export const Register = () => {
   const { loading, handleChange, handleSubmitRegister } = useRegister();

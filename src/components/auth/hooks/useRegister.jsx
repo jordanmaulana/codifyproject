@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { API_URL } from "@/config/apiUrl";
+import { REGISTER } from "@/config/apiUrl";
 import toast from "react-hot-toast";
 
 export const useRegister = () => {
@@ -35,7 +35,7 @@ export const useRegister = () => {
 
     setLoading(true);
 
-    const res = await fetch(`${API_URL}/register`, {
+    const res = await fetch(REGISTER, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

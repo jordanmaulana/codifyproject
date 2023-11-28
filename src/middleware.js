@@ -9,9 +9,9 @@ export default function middleware(request) {
     return NextResponse.next();
   }
 
-  return NextResponse.redirect(new URL("/register", request.url));
+  return NextResponse.redirect(new URL("/login", request.url));
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*"],
+  matcher: ["/", "/dashboard/:path*"],
 };

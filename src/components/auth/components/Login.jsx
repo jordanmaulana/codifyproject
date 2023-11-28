@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useLogin } from "../hooks/useLogin";
 import { Eye, EyeOff } from "lucide-react";
 import Image from "next/image";
-import { GradientButton } from "@/components/shared-ui/Gradientbutton";
+import { GradientButton } from "@/components/shared-ui/GradientButton";
 
 export const Login = () => {
   const {

@@ -9,7 +9,7 @@ export const Register = () => {
   const { loading, handleChange, handleSubmitRegister } = useRegister();
 
   return (
-    <main className="space-y-3">
+    <main className="space-y-3 ">
       <Input name="name" placeholder="name" onChange={handleChange} />
       <Input
         name="email"

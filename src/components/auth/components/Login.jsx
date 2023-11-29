@@ -12,8 +12,8 @@ export const Login = () => {
     loading,
     handleChange,
     handleSubmitLogin,
-    toggleVisibility,
-    isVisible,
+    togglePasswordVisibility,
+    isPasswordVisible,
   } = useLogin();
 
   return (
@@ -45,12 +45,12 @@ export const Login = () => {
           <button
             className="focus:outline-none"
             type="button"
-            onClick={toggleVisibility}
+            onClick={togglePasswordVisibility}
           >
-            {isVisible ? <EyeOff /> : <Eye />}
+            {isPasswordVisible ? <EyeOff /> : <Eye />}
           </button>
         }
-        type={isVisible ? "text" : "password"}
+        type={isPasswordVisible ? "text" : "password"}
       />
       <div className="mt-8" />
       <GradientButton

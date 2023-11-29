@@ -14,9 +14,9 @@ export const useLogin = () => {
     password: "",
   });
 
-  const [isVisible, setIsVisible] = useState(false);
-
-  const toggleVisibility = () => setIsVisible(!isVisible);
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const togglePasswordVisibility = () =>
+    setIsPasswordVisible(!isPasswordVisible);
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -51,7 +51,7 @@ export const useLogin = () => {
     loading,
     handleChange,
     handleSubmitLogin,
-    toggleVisibility,
-    isVisible,
+    togglePasswordVisibility,
+    isPasswordVisible,
   };
 };

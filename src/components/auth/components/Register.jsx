@@ -11,7 +11,7 @@ export const Register = () => {
   const { loading, handleChange, handleSubmitRegister } = useRegister();
 
   return (
-    <main className="space-y-3 p-24 rounded-lg flex flex-col shadow-xl ">
+    <main className="space-y-3 p-16 rounded-lg flex flex-col shadow-xl ">
       <div className="block lg:hidden">
         <div className="relative w-full h-[64px] ">
           <Image
@@ -23,22 +23,38 @@ export const Register = () => {
         </div>
       </div>
       <h1 className="text-lg font-semibold">Register</h1>
-      <Input name="name" label="Name" onChange={handleChange} />
-      <Input name="email" label="Email Address" onChange={handleChange} />
+      <Input
+        name="name"
+        label="Name"
+        onChange={handleChange}
+        className="w-72"
+      />
+      <Input
+        name="email"
+        label="Email Address"
+        onChange={handleChange}
+        className="w-72"
+      />
       <Input
         name="password"
         label="Password"
         type="password"
         onChange={handleChange}
+        className="w-72"
       />
+      <div className="mt-8" />
+
       <GradientButton
+        className="mt-16"
         isDisabled={loading}
         clicked={handleSubmitRegister}
         title={"Register"}
       />
-      <div className="flex gap-1">
+      <div className="flex gap-1 text-sm justify-center">
         <div>Have an account ?</div>
-        <Link href="/login">Login</Link>
+        <Link href="/login" className="text-blue-600 underline">
+          Login{" "}
+        </Link>
       </div>
     </main>
   );

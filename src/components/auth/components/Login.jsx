@@ -17,7 +17,7 @@ export const Login = () => {
   } = useLogin();
 
   return (
-    <main className="space-y-3 p-24 rounded-lg flex flex-col shadow-xl">
+    <main className="space-y-3 p-16 rounded-lg flex flex-col shadow-xl">
       <div className="block lg:hidden">
         <div className="relative w-full h-[64px] ">
           <Image
@@ -34,11 +34,13 @@ export const Login = () => {
         type="email"
         label="Email Address"
         onChange={handleChange}
+        className="w-72"
       />
       <Input
         name="password"
         label="Password"
         onChange={handleChange}
+        className="w-72"
         endContent={
           <button
             className="focus:outline-none"
@@ -50,13 +52,13 @@ export const Login = () => {
         }
         type={isVisible ? "text" : "password"}
       />
+      <div className="mt-8" />
       <GradientButton
         isDisabled={loading}
         clicked={handleSubmitLogin}
         title={"Login"}
       />
-
-      <div className="flex gap-1 text-sm">
+      <div className="flex gap-1 text-sm justify-center">
         <div>Don't have an account ?</div>
         <Link href="/register" className="text-blue-600 underline">
           Register here

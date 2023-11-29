@@ -94,7 +94,7 @@ export const Register = () => {
         title={"Register"}
       />
       <div className="flex gap-1 text-sm justify-center">
-        <div>Have an account ?</div>
+        <div>Have an account?</div>
         <Link href="/login" className="text-blue-600 underline">
           Login
         </Link>

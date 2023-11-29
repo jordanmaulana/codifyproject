@@ -59,7 +59,7 @@ export const Login = () => {
         title={"Login"}
       />
       <div className="flex gap-1 text-sm justify-center">
-        <div>Don't have an account ?</div>
+        <div>Don't have an account?</div>
         <Link href="/register" className="text-blue-600 underline">
           Register here
         </Link>

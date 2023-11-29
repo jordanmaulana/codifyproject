@@ -24,7 +24,7 @@ export const useRegister = () => {
     setRegisterData({ ...registerData, [name]: value });
   }
 
-  async function handleSubmitRegister() {
+  async function handleSubmitRegister(callback) {
     const { name, email, password, retypepassword } = registerData;
     let error = "";
     console.log(name);
@@ -59,7 +59,9 @@ export const useRegister = () => {
     }
 
     setLoading(false);
+
     toast.success("User registered, please login...");
+    callback(true);
   }
 
   return {

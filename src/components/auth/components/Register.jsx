@@ -7,8 +7,11 @@ import { useRegister } from "../hooks/useRegister";
 import Image from "next/image";
 import { GradientButton } from "@/components/shared-ui/GradientButton";
 import { Eye, EyeOff } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export const Register = () => {
+  const router = useRouter();
+
   const {
     loading,
     handleChange,
@@ -81,7 +84,13 @@ export const Register = () => {
       <GradientButton
         className="mt-16"
         isDisabled={loading}
-        clicked={handleSubmitRegister}
+        clicked={() => {
+          handleSubmitRegister((success) => {
+            if (success) {
+              router.replace("/login");
+            }
+          });
+        }}
         title={"Register"}
       />
       <div className="flex gap-1 text-sm justify-center">

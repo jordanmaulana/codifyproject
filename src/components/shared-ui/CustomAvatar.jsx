@@ -24,9 +24,11 @@ function capitalizeFirstLetters(sentence) {
   return capitalizedSentence;
 }
 
-export const CustomAvatar = ({ name, role }) => {
+export const CustomAvatar = ({ name, email }) => {
   const initial = extractInitials(name);
   const capitalizedName = capitalizeFirstLetters(name);
+
+  console.log(name);
 
   return (
     <Dropdown>
@@ -51,7 +53,7 @@ export const CustomAvatar = ({ name, role }) => {
             />
             <div>
               <div className="text-lg font-semibold">{capitalizedName}</div>
-              <div className="text-xs">{role}</div>
+              <div className="text-xs">{email}</div>
             </div>
           </div>
         </DropdownItem>

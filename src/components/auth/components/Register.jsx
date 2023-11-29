@@ -6,9 +6,18 @@ import Link from "next/link";
 import { useRegister } from "../hooks/useRegister";
 import Image from "next/image";
 import { GradientButton } from "@/components/shared-ui/GradientButton";
+import { Eye, EyeOff } from "lucide-react";
 
 export const Register = () => {
-  const { loading, handleChange, handleSubmitRegister } = useRegister();
+  const {
+    loading,
+    handleChange,
+    handleSubmitRegister,
+    togglePasswordVisibility,
+    isPasswordVisible,
+    isRetypeVisible,
+    toggleRetypeVisibility,
+  } = useRegister();
 
   return (
     <main className="space-y-3 p-16 rounded-lg flex flex-col shadow-xl ">
@@ -38,9 +47,34 @@ export const Register = () => {
       <Input
         name="password"
         label="Password"
-        type="password"
+        type={isPasswordVisible ? "text" : "password"}
         onChange={handleChange}
         className="w-72"
+        endContent={
+          <button
+            className="focus:outline-none"
+            type="button"
+            onClick={togglePasswordVisibility}
+          >
+            {isPasswordVisible ? <EyeOff /> : <Eye />}
+          </button>
+        }
+      />
+      <Input
+        name="retypepassword"
+        label="Re-type Password"
+        type={isRetypeVisible ? "text" : "password"}
+        onChange={handleChange}
+        className="w-72"
+        endContent={
+          <button
+            className="focus:outline-none"
+            type="button"
+            onClick={toggleRetypeVisibility}
+          >
+            {isRetypeVisible ? <EyeOff /> : <Eye />}
+          </button>
+        }
       />
       <div className="mt-8" />
 

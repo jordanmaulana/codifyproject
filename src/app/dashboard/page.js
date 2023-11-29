@@ -11,7 +11,7 @@ export default function Page() {
 
   return (
     <div>
-      <CustomAvatar name={payload.name} role={payload.role} />
+      <CustomAvatar name={payload.name} email={payload.email} />
     </div>
   );
 }

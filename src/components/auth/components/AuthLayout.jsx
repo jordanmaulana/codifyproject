@@ -17,7 +17,7 @@ export const AuthLayout = ({ children }) => {
               alt="logo"
             />
           </div>
-          <div className="text-white text-opacity-70 text-md px-36">
+          <div className="text-white text-opacity-70 text-md px-36 text-center">
             Look no further! Our tickets are the simplest way for you to
             experience a live event.
           </div>

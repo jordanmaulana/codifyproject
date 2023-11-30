@@ -5,22 +5,8 @@ import { Header } from "@/components/shared-ui/Header";
 import { Footer } from "@/components/shared-ui/Footer";
 import { Button } from "@nextui-org/react";
 import { Calendar, MapPin } from "lucide-react";
-import { EVENT_URL } from "@/config/apiUrl";
 
-async function getData(id) {
-  const res = await fetch(`${EVENT_URL}/${id}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  const data = await res.json();
-  return data;
-}
-
-export async function EventDetail({ id }) {
-  const { data } = await getData(id);
-
+export async function EventDetail({ data }) {
   return (
     <div className="relative bg-gradient-to-br from-pink via-purple to-purple ">
       <div className="relative z-10">

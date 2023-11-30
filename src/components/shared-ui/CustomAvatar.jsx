@@ -38,7 +38,7 @@ export const CustomAvatar = () => {
         <div className="relative w-min">
           <Avatar
             name={extractInitials(user?.name)}
-            className="bg-purple text-white text-sm font-semibold"
+            className="bg-pink text-white text-sm font-semibold"
           />
           <ChevronDown
             className="absolute bottom-0 bg-slate-400 rounded-full right-0"

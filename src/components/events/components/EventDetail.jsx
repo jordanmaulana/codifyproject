@@ -4,20 +4,39 @@ import Image from "next/image";
 import { useEventDetail } from "../hooks/useEventDetail";
 import { Header } from "@/components/shared-ui/Header";
 import { Footer } from "@/components/shared-ui/Footer";
+import { Button } from "@nextui-org/react";
+import { Calendar, MapPin } from "lucide-react";
 
 export const EventDetail = ({ id }) => {
   const { data } = useEventDetail(id);
 
   return (
-    <div className="relative bg-gradient-to-br from-pink to-purple ">
+    <div className="relative bg-gradient-to-br from-pink via-purple to-purple ">
       <div className="relative z-10">
         <Header />
-        <main className="p-32 flex gap-8 text-white">
+        <main className="p-32 flex gap-16 text-white">
           <img
             src="https://picsum.photos/800/600"
             className="rounded-lg shadow-lg"
           />
-          <div className="text-5xl font-bold">{data?.name}</div>
+          <div className="flex flex-col gap-8 py-8">
+            <div className="text-5xl font-bold">{data?.name}</div>
+            <div>{data?.description}</div>
+
+            <div className="flex gap-4">
+              <div className="flex gap-2">
+                <Calendar />
+                {data?.date}
+              </div>
+              <div className="flex gap-2">
+                <MapPin />
+                {data?.location}
+              </div>
+            </div>
+            <Button className="bg-red w-44 text-white rounded-[50px]">
+              Join
+            </Button>
+          </div>
         </main>
         <Footer />
       </div>

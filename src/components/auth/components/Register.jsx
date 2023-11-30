@@ -6,12 +6,24 @@ import Link from "next/link";
 import { useRegister } from "../hooks/useRegister";
 import Image from "next/image";
 import { GradientButton } from "@/components/shared-ui/GradientButton";
+import { Eye, EyeOff } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export const Register = () => {
-  const { loading, handleChange, handleSubmitRegister } = useRegister();
+  const router = useRouter();
+
+  const {
+    loading,
+    handleChange,
+    handleSubmitRegister,
+    togglePasswordVisibility,
+    isPasswordVisible,
+    isRetypeVisible,
+    toggleRetypeVisibility,
+  } = useRegister();
 
   return (
-    <main className="space-y-3 p-24 rounded-lg flex flex-col shadow-xl ">
+    <main className="space-y-3 p-16 rounded-lg flex flex-col shadow-xl ">
       <div className="block lg:hidden">
         <div className="relative w-full h-[64px] ">
           <Image
@@ -23,22 +35,69 @@ export const Register = () => {
         </div>
       </div>
       <h1 className="text-lg font-semibold">Register</h1>
-      <Input name="name" label="Name" onChange={handleChange} />
-      <Input name="email" label="Email Address" onChange={handleChange} />
+      <Input
+        name="name"
+        label="Name"
+        onChange={handleChange}
+        className="w-72"
+      />
+      <Input
+        name="email"
+        label="Email Address"
+        onChange={handleChange}
+        className="w-72"
+      />
       <Input
         name="password"
         label="Password"
-        type="password"
+        type={isPasswordVisible ? "text" : "password"}
         onChange={handleChange}
+        className="w-72"
+        endContent={
+          <button
+            className="focus:outline-none"
+            type="button"
+            onClick={togglePasswordVisibility}
+          >
+            {isPasswordVisible ? <EyeOff /> : <Eye />}
+          </button>
+        }
       />
+      <Input
+        name="retypepassword"
+        label="Re-type Password"
+        type={isRetypeVisible ? "text" : "password"}
+        onChange={handleChange}
+        className="w-72"
+        endContent={
+          <button
+            className="focus:outline-none"
+            type="button"
+            onClick={toggleRetypeVisibility}
+          >
+            {isRetypeVisible ? <EyeOff /> : <Eye />}
+          </button>
+        }
+      />
+      <div className="mt-8" />
+
       <GradientButton
+        className="mt-16"
         isDisabled={loading}
-        clicked={handleSubmitRegister}
+        clicked={() => {
+          handleSubmitRegister((success) => {
+            if (success) {
+              router.replace("/login");
+            }
+          });
+        }}
         title={"Register"}
       />
-      <div className="flex gap-1">
-        <div>Have an account ?</div>
-        <Link href="/login">Login</Link>
+      <div className="flex gap-1 text-sm justify-center">
+        <div>Have an account?</div>
+        <Link href="/login" className="text-blue-600 underline">
+          Login
+        </Link>
       </div>
     </main>
   );

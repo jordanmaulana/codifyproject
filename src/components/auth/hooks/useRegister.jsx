@@ -12,13 +12,20 @@ export const useRegister = () => {
     password: "",
   });
 
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const togglePasswordVisibility = () =>
+    setIsPasswordVisible(!isPasswordVisible);
+
+  const [isRetypeVisible, setIsRetypeVisible] = useState(false);
+  const toggleRetypeVisibility = () => setIsRetypeVisible(!isRetypeVisible);
+
   function handleChange(e) {
     const { name, value } = e.target;
     setRegisterData({ ...registerData, [name]: value });
   }
 
-  async function handleSubmitRegister() {
-    const { name, email, password } = registerData;
+  async function handleSubmitRegister(callback) {
+    const { name, email, password, retypepassword } = registerData;
     let error = "";
     console.log(name);
     console.log(email);
@@ -26,7 +33,8 @@ export const useRegister = () => {
 
     if (!name) error += "Name must not be empty\n";
     if (!email) error += "Email must not be empty\n";
-    if (!password) error += "Password must not be empty";
+    if (!password) error += "Password must not be empty\n";
+    if (retypepassword !== password) error += "Password fields didn't match";
 
     if (error) {
       alert(error);
@@ -51,8 +59,18 @@ export const useRegister = () => {
     }
 
     setLoading(false);
+
     toast.success("User registered, please login...");
+    callback(true);
   }
 
-  return { loading, handleChange, handleSubmitRegister };
+  return {
+    loading,
+    handleChange,
+    handleSubmitRegister,
+    togglePasswordVisibility,
+    isPasswordVisible,
+    isRetypeVisible,
+    toggleRetypeVisibility,
+  };
 };

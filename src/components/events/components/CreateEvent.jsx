@@ -6,7 +6,7 @@ import React from "react";
 import { useCreateEvent } from "../hooks/useCreateEvent";
 
 export const CreateEvent = () => {
-  const { handleChange, handleSubmitData } = useCreateEvent();
+  const { loading, handleChange, handleSubmitData } = useCreateEvent();
 
   return (
     <main className="space-y-3 max-w-xs m-auto">
@@ -39,7 +39,11 @@ export const CreateEvent = () => {
         onChange={handleChange}
       />
       <div className="w-72 mt-4">
-        <GradientButton title={"SUBMIT"} clicked={handleSubmitData} />
+        <GradientButton
+          title={"SUBMIT"}
+          clicked={handleSubmitData}
+          isDisabled={loading}
+        />
       </div>
     </main>
   );

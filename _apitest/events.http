@@ -1,6 +1,6 @@
 ### List Events
 
-GET https://eventmakers-api.vercel.app/api/event
+GET https://eventmakers-api.vercel.app/api/events
 
 ### Single Event
 

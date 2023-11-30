@@ -2,6 +2,7 @@
 
 import { useUser } from "@/components/user/hooks/useUser";
 import { useState } from "react";
+import { CREATE_EVENT_URL } from "@/config/apiUrl";
 
 export const useCreateEvent = () => {
   const { user } = useUser();
@@ -14,16 +15,28 @@ export const useCreateEvent = () => {
     authorId: user?.id,
   });
 
+  const [loading, setLoading] = useState(false);
+
   function handleChange(e) {
     const { name, value } = e.target;
     setData({ ...data, [name]: value });
   }
 
-  function handleSubmitData() {
-    console.log(data);
+  async function handleSubmitData() {
+    data.authorId = user?.id;
+    setLoading(true);
+    const res = await fetch(CREATE_EVENT_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    setLoading(false);
   }
 
   return {
+    loading,
     handleChange,
     handleSubmitData,
   };

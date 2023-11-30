@@ -28,8 +28,6 @@ export const CustomAvatar = ({ name, email }) => {
   const initial = extractInitials(name);
   const capitalizedName = capitalizeFirstLetters(name);
 
-  console.log(name);
-
   return (
     <Dropdown>
       <DropdownTrigger>

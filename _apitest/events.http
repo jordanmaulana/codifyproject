@@ -4,7 +4,7 @@ GET https://eventmakers-api.vercel.app/api/events
 
 ### Single Event
 
-GET https://eventmakers-api.vercel.app/api/event/f4563880-81de-457d-bf19-9ccaf181f1f8
+GET https://eventmakers-api.vercel.app/api/events/6f0701e1-d61c-446c-ab04-9503a56ef46d
 
 ### Create Event
 

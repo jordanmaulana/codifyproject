@@ -2,7 +2,7 @@
 
 import { useUser } from "@/components/user/hooks/useUser";
 import { useState } from "react";
-import { CREATE_EVENT_URL } from "@/config/apiUrl";
+import { EVENT_URL } from "@/config/apiUrl";
 
 export const useCreateEvent = () => {
   const { user } = useUser();
@@ -25,7 +25,7 @@ export const useCreateEvent = () => {
   async function handleSubmitData() {
     data.authorId = user?.id;
     setLoading(true);
-    const res = await fetch(CREATE_EVENT_URL, {
+    const res = await fetch(EVENT_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

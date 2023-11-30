@@ -15,8 +15,10 @@ module.exports = {
         pink: "#ED4690",
         purple: "#5522CC",
         form: "#0A075F",
+        red: "#F5167E",
       },
     },
   },
+  plugins: [nextui()],
   plugins: [nextui()],
 };

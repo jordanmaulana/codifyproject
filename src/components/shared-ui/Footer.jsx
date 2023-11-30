@@ -2,7 +2,7 @@ import React from "react";
 
 export const Footer = () => {
   return (
-    <footer className="text-center bg-black px-8 py-4 w-full">
+    <footer className="text-center bg-black p-4 w-full text-xs">
       <div className="flex justify-between items-end text-white">
         <div className="gap-2 flex">
           <p> Special Thanks to</p>
@@ -16,7 +16,7 @@ export const Footer = () => {
           ❤️
         </div>
 
-        <p className="font-xs italic">
+        <p className="font-xs italic max-w-sm">
           Codify: Bintang Koesoema, Jordan Maulana, Rifqi Izzatur
         </p>
 

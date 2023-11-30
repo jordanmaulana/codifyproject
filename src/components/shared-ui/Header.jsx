@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const Header = () => {
   return (
-    <header className="flex justify-between py-4 px-16 items-center text-white ">
+    <header className="flex justify-between py-4 px-8 items-center text-white ">
       <div className="text-lg">
         <span className="font-extrabold text-lg">Codi</span>
         <span className="text-lg">vent</span>

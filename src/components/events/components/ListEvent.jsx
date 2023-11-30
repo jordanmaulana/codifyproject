@@ -1,11 +1,11 @@
 import React from "react";
 import { Card } from "@/components/events/components/Card";
-import { GET_EVENT_URL } from "@/config/apiUrl";
+import { EVENT_URL } from "@/config/apiUrl";
 
-async function getEvents(){
-    //console.log(GET_EVENT_URL);
-  const res = await fetch(GET_EVENT_URL,{
-    cache: "no-store",  
+async function getEvents() {
+  //console.log(GET_EVENT_URL);
+  const res = await fetch(EVENT_URL, {
+    cache: "no-store",
   });
   const result = await res.json();
   return result;
@@ -16,7 +16,6 @@ export default async function ListEvent() {
   //console.log(data);
   return (
     <div>
-      
       <div className="flex justify-between">
         <div className="w-full">
           <div className="p-2 pl-6 text-lg font-semibold bg-slate-100">
@@ -24,31 +23,30 @@ export default async function ListEvent() {
           </div>
           <div className="flex flex-row justify-center h-screen bg-slate-100">
             <div className="max-h-screen">
-          <div className="grid grid-cols-1 lg:grid-cols-3 m-1">
-            {data?.map((data) => {
-              return (
-                <Card 
-                  id={data.id}
-                  createdAt={data.createdAt}
-                  updatedAt={data.updatedAt}
-                  name={data.name}
-                  description={data.description}
-                  location={data.location}
-                  date={data.date}
-                  isBanned={data.isBanned}
-                  authorId={data.authorId}
-                  participants={data.participants}
-                  author={data.author}
-                  participantsQty={data.participants.length}
+              <div className="grid grid-cols-1 lg:grid-cols-3 m-1">
+                {data?.map((data) => {
+                  return (
+                    <Card
+                      id={data.id}
+                      createdAt={data.createdAt}
+                      updatedAt={data.updatedAt}
+                      name={data.name}
+                      description={data.description}
+                      location={data.location}
+                      date={data.date}
+                      isBanned={data.isBanned}
+                      authorId={data.authorId}
+                      participants={data.participants}
+                      author={data.author}
+                      participantsQty={data.participants.length}
                     />
-                );
-            })}
-          </div>
-          </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
-        
       </div>
     </div>
-  )
+  );
 }

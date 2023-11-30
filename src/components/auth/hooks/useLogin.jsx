@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { LOGIN } from "@/config/apiUrl";
+import { LOGIN_URL } from "@/config/apiUrl";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
@@ -26,7 +26,7 @@ export const useLogin = () => {
   async function handleSubmitLogin() {
     setLoading(true);
     const { email, password } = loginData;
-    const res = await fetch(LOGIN, {
+    const res = await fetch(LOGIN_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -35,6 +35,7 @@ export const useLogin = () => {
     });
     const data = await res.json();
     Cookies.set("token", data.token);
+    localStorage.setItem("userdata", JSON.stringify(data.data));
 
     if (!data) {
       setLoading(false);

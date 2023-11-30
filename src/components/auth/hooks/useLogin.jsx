@@ -35,6 +35,7 @@ export const useLogin = () => {
     });
     const data = await res.json();
     Cookies.set("token", data.token);
+    Cookies.set("userId", data.data.id);
     localStorage.setItem("userdata", JSON.stringify(data.data));
 
     if (!data) {

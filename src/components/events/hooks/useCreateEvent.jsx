@@ -1,14 +1,17 @@
 "use client";
 
+import { useUser } from "@/components/user/hooks/useUser";
 import { useState } from "react";
 
 export const useCreateEvent = () => {
+  const { user } = useUser();
+
   const [data, setData] = useState({
     name: "",
     description: "",
     location: "",
     date: "",
-    authorId: "",
+    authorId: user?.id,
   });
 
   function handleChange(e) {

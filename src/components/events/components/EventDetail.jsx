@@ -1,14 +1,25 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { useEventDetail } from "../hooks/useEventDetail";
 import { Header } from "@/components/shared-ui/Header";
 import { Footer } from "@/components/shared-ui/Footer";
 import { Button } from "@nextui-org/react";
 import { Calendar, MapPin } from "lucide-react";
+import { EVENT_URL } from "@/config/apiUrl";
 
-export const EventDetail = ({ id }) => {
-  const { data } = useEventDetail(id);
+async function getData(id) {
+  const res = await fetch(`${EVENT_URL}/${id}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const data = await res.json();
+  return data;
+}
+
+export async function EventDetail({ id }) {
+  const { data } = await getData(id);
 
   return (
     <div className="relative bg-gradient-to-br from-pink via-purple to-purple ">
@@ -45,4 +56,4 @@ export const EventDetail = ({ id }) => {
       </div>
     </div>
   );
-};
+}

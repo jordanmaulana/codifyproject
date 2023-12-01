@@ -1,11 +1,11 @@
 import React from "react";
 import { EventHeader } from "./EventHeader";
 import Link from "next/link";
-import { Button } from "@nextui-org/react";
 
 import { Footer } from "@/components/shared-ui/Footer";
 import Image from "next/image";
 import { cookies } from "next/headers";
+import { Button } from "@nextui-org/react";
 
 export function EventDetail({ data }) {
   const cookieStore = cookies();
@@ -34,13 +34,7 @@ export function EventDetail({ data }) {
       </div>
     );
   }
-import { Button } from "@nextui-org/react";
-import { Calendar, MapPin } from "lucide-react";
-import { JoinEvent } from "./JoinEvent";
 
-
-export async function EventDetail({ data }) {
-  //console.log({data});
   return (
     <div>
       <EventHeader data={data} />

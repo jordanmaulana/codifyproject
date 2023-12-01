@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import { Header } from "@/components/shared-ui/Header";
@@ -6,8 +8,9 @@ import { Calendar, MapPin } from "lucide-react";
 import { capitalizeFirstLetters } from "@/lib/string_library";
 import Link from "next/link";
 import { Users } from "lucide-react";
+import { useJoinEvent } from "../hooks/useJoinEvent";
 
-export async function EventHeader({ data }) {
+export function EventHeader({ data }) {
   return (
     <div className="relative bg-gradient-to-br from-pink via-purple to-purple">
       <div className="relative z-10">
@@ -23,6 +26,8 @@ export async function EventHeader({ data }) {
 
 const Content = ({ data }) => {
   if (!data) return <div />;
+  const { loading, handleJoinData } = useJoinEvent(data?.id);
+
   return (
     <div className="p-16 flex gap-16 text-white justify-center">
       <Image
@@ -51,7 +56,11 @@ const Content = ({ data }) => {
           </div>
         </div>
         <div className="flex gap-4">
-          <Button className="bg-red w-44 h-14 text-white rounded-[50px] font-bold">
+          <Button
+            className="bg-red w-44 h-14 text-white rounded-[50px] font-bold"
+            onClick={handleJoinData}
+            isLoading={loading}
+          >
             Join
           </Button>
           <Link href={`/events/${data.id}`}>

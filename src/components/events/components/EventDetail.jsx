@@ -12,8 +12,10 @@ export async function EventDetail({ data }) {
       <div className="relative z-10">
         <Header />
         <main className="p-32 flex gap-16 text-white">
-          <img
+          <Image
             src="https://picsum.photos/800/600"
+            width={800}
+            height={600}
             className="rounded-lg shadow-lg"
           />
           <div className="flex flex-col gap-8 py-8">

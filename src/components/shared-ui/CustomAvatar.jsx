@@ -1,5 +1,6 @@
 "use client";
 import { useUser } from "@/components/user/hooks/useUser";
+import { extractInitials, capitalizeFirstLetters } from "@/lib/string_library";
 
 import React from "react";
 import {
@@ -10,24 +11,6 @@ import {
   DropdownMenu,
 } from "@nextui-org/react";
 import { ChevronDown } from "lucide-react";
-
-function extractInitials(name) {
-  if (!name) return "";
-  const words = name.split(" ");
-  const initials = words.map((word) => word[0].toUpperCase()).join("");
-  return initials;
-}
-
-function capitalizeFirstLetters(sentence) {
-  if (!sentence) return "";
-
-  const words = sentence.split(" ");
-  const capitalizedWords = words.map(
-    (word) => word.charAt(0).toUpperCase() + word.slice(1)
-  );
-  const capitalizedSentence = capitalizedWords.join(" ");
-  return capitalizedSentence;
-}
 
 export const CustomAvatar = () => {
   const { user } = useUser();

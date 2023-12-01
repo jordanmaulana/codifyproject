@@ -1,6 +1,10 @@
 import React from "react";
 import { Card } from "@/components/events/components/Card";
 import { EVENT_URL } from "@/config/apiUrl";
+import Link from "next/link";
+import { EventDetail } from "./EventDetail";
+import { EventHeader } from "./EventHeader";
+import { Footer } from "@/components/shared-ui/Footer";
 
 async function getEvents() {
   //console.log(GET_EVENT_URL);
@@ -13,40 +17,40 @@ async function getEvents() {
 
 export default async function ListEvent() {
   const { data } = await getEvents();
-  //console.log(data);
+
+  const newestEvent = data[0];
+
   return (
     <div>
-      <div className="flex justify-between">
-        <div className="w-full">
-          <div className="p-2 pl-6 text-lg font-semibold bg-slate-100">
-            <h1>Event Lists </h1>
-          </div>
-          <div className="flex flex-row justify-center h-screen bg-slate-100">
-            <div className="max-h-screen">
-              <div className="grid grid-cols-1 lg:grid-cols-3 m-1">
-                {data?.map((data) => {
-                  return (
-                    <Card
-                      id={data.id}
-                      createdAt={data.createdAt}
-                      updatedAt={data.updatedAt}
-                      name={data.name}
-                      description={data.description}
-                      location={data.location}
-                      date={data.date}
-                      isBanned={data.isBanned}
-                      authorId={data.authorId}
-                      participants={data.participants}
-                      author={data.author}
-                      participantsQty={data.participants.length}
-                    />
-                  );
-                })}
-              </div>
-            </div>
-          </div>
+      <EventHeader data={newestEvent} />
+      <div id="explore" className="max-w-5xl m-auto mb-16">
+        <h1 className="text-headerText text-4xl font-bold mt-16 mb-8">
+          Upcoming Events
+        </h1>
+        <div className="grid grid-cols-1 lg:grid-cols-3 m-1 gap-7 max-h-screen  overflow-y-auto">
+          {data?.map((data) => {
+            return (
+              <Link href={`/events/${data.id}`}>
+                <Card
+                  id={data.id}
+                  createdAt={data.createdAt}
+                  updatedAt={data.updatedAt}
+                  name={data.name}
+                  description={data.description}
+                  location={data.location}
+                  date={data.date}
+                  isBanned={data.isBanned}
+                  authorId={data.authorId}
+                  participants={data.participants}
+                  author={data.author}
+                  participantsQty={data.participants.length}
+                />
+              </Link>
+            );
+          })}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

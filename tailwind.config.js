@@ -16,9 +16,11 @@ module.exports = {
         purple: "#5522CC",
         form: "#0A075F",
         red: "#F5167E",
+        grey: "#6A6A6A",
+        darkPurple: "#3D37F1",
+        headerText: "#242565",
       },
     },
   },
-  plugins: [nextui()],
   plugins: [nextui()],
 };

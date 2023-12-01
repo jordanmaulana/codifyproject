@@ -5,8 +5,11 @@ import { Header } from "@/components/shared-ui/Header";
 import { Footer } from "@/components/shared-ui/Footer";
 import { Button } from "@nextui-org/react";
 import { Calendar, MapPin } from "lucide-react";
+import { JoinEvent } from "./JoinEvent";
+
 
 export async function EventDetail({ data }) {
+  //console.log({data});
   return (
     <div className="relative bg-gradient-to-br from-pink via-purple to-purple ">
       <div className="relative z-10">
@@ -32,9 +35,8 @@ export async function EventDetail({ data }) {
                 {data?.location}
               </div>
             </div>
-            <Button className="bg-red w-44 text-white rounded-[50px]">
-              Join
-            </Button>
+            <JoinEvent eventId={data?.id}/>
+            
           </div>
         </main>
         <Footer />

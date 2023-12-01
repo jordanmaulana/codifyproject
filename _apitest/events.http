@@ -2,20 +2,25 @@
 
 GET https://eventmakers-api.vercel.app/api/events
 
+
+### List Events by User
+
+GET https://eventmakers-api.vercel.app/api/events?userid=83257de4-5397-4993-be7f-a194f2640d1d
+
 ### Single Event
 
 GET https://eventmakers-api.vercel.app/api/events/6f0701e1-d61c-446c-ab04-9503a56ef46d
 
 ### Create Event
 
-POST https://eventmakers-api.vercel.app/api/event
+POST https://eventmakers-api.vercel.app/api/events
 
 {
-    "name": "Gathering of the Stars",
+    "name": "Drone Photography 2023",
     "description": "Lezzgoo",
-    "location": "Milky Way Galaxy",
+    "location": "Giri Hills",
     "date": "2023-11-23",
-    "authorId": "d0ef327c-e6c9-4bb3-8fd2-f8b83171f91a"
+    "authorId": "83257de4-5397-4993-be7f-a194f2640d1d"
 }
 
 ### Join Event

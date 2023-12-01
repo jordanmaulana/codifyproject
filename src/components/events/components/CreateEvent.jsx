@@ -9,7 +9,7 @@ export const CreateEvent = () => {
   const { loading, handleChange, handleSubmitData } = useCreateEvent();
 
   return (
-    <main className="space-y-3 max-w-xs m-auto">
+    <main className="flex flex-col gap-4 max-w-xs m-auto">
       <Input
         name="name"
         type="email"

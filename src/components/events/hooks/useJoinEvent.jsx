@@ -6,7 +6,7 @@ import { JOIN_EVENT_URL } from "@/config/apiUrl";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
-export const useJoinEvent = (evId) => {
+export const useJoinEvent = (eventId) => {
   const router = useRouter();
   //console.log(evId);
 
@@ -24,7 +24,7 @@ export const useJoinEvent = (evId) => {
     name: "",
     email: "",
     phone: "",
-    eventId: evId.eventId,
+    eventId: eventId.eventId,
   });
   //console.log(data);
 

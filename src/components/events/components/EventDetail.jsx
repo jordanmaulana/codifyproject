@@ -34,6 +34,13 @@ export function EventDetail({ data }) {
       </div>
     );
   }
+import { Button } from "@nextui-org/react";
+import { Calendar, MapPin } from "lucide-react";
+import { JoinEvent } from "./JoinEvent";
+
+
+export async function EventDetail({ data }) {
+  //console.log({data});
   return (
     <div>
       <EventHeader data={data} />

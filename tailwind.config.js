@@ -19,6 +19,7 @@ module.exports = {
         grey: "#6A6A6A",
         darkPurple: "#3D37F1",
         headerText: "#242565",
+        lightPurple: "#EEE1FF",
       },
     },
   },

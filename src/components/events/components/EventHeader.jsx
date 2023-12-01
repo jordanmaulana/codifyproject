@@ -51,7 +51,7 @@ const Content = ({ data }) => {
           </div>
         </div>
         <div className="flex gap-4">
-          <Button className="bg-red w-44 h-14 text-white rounded-[50px]">
+          <Button className="bg-red w-44 h-14 text-white rounded-[50px] font-bold">
             Join
           </Button>
           <Link href={`/events/${data.id}`}>

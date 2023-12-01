@@ -13,7 +13,7 @@ async function getEvents() {
 
 export default async function ListEvent() {
   const { data } = await getEvents();
-  //console.log(data);
+
   return (
     <div>
       <div className="flex justify-between">
@@ -23,7 +23,7 @@ export default async function ListEvent() {
           </div>
           <div className="flex flex-row justify-center h-screen bg-slate-100">
             <div className="max-h-screen">
-              <div className="grid grid-cols-1 lg:grid-cols-3 m-1">
+              <div className="grid grid-cols-1 lg:grid-cols-3 m-1 gap-7">
                 {data?.map((data) => {
                   return (
                     <Card

@@ -32,6 +32,7 @@ export default async function ListEvent() {
             return (
               <Link href={`/events/${data.id}`}>
                 <Card
+                  key={data.id}
                   id={data.id}
                   createdAt={data.createdAt}
                   updatedAt={data.updatedAt}

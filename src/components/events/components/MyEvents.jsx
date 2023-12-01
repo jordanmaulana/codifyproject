@@ -11,6 +11,7 @@ export const MyEvents = ({ data }) => {
         {data?.map((data) => {
           return (
             <Card
+              key={data.id}
               id={data.id}
               createdAt={data.createdAt}
               updatedAt={data.updatedAt}

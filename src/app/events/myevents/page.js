@@ -22,5 +22,5 @@ async function getData() {
 export default async function Page() {
   const { data } = await getData();
 
-  return <MyEvents data={data} />;
+  return <MyEvents data={[]} />;
 }

@@ -2,7 +2,10 @@ import React from "react";
 
 export const Footer = () => {
   return (
-    <footer id="footer" className="text-center bg-black p-4 w-full text-xs">
+    <footer
+      id="footer"
+      className="text-center bg-black p-4 w-full text-xs mt-16"
+    >
       <div className="flex justify-between items-end text-white">
         <div className="gap-2 flex">
           <p> Special Thanks to</p>

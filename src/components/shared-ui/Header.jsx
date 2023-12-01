@@ -11,7 +11,7 @@ export const Header = () => {
       </div>
       <div className="flex gap-8 items-center">
         <Link href="/events#explore">Explore</Link>
-        <Link href="/">My Events</Link>
+        <Link href="/events/myevents">My Events</Link>
         <Link href="#footer">Contact Us</Link>
         <CustomAvatar />
       </div>

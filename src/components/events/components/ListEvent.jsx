@@ -2,7 +2,6 @@ import React from "react";
 import { Card } from "@/components/events/components/Card";
 import { EVENT_URL } from "@/config/apiUrl";
 import Link from "next/link";
-import { EventDetail } from "./EventDetail";
 import { EventHeader } from "./EventHeader";
 import { Footer } from "@/components/shared-ui/Footer";
 

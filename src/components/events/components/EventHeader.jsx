@@ -32,9 +32,9 @@ const Content = ({ data }) => {
         className="rounded-lg shadow-lg"
       />
 
-      <div className="flex flex-col gap-8 py-8">
+      <div className="flex flex-col gap-8 py-8 max-w-md">
         <div className="text-5xl font-bold">{data?.name}</div>
-        <div className="max-w-xl">{data?.description}</div>
+        <div>{data?.description}</div>
 
         <div className="flex gap-4">
           <div className="flex gap-2 items-center">

@@ -1,23 +1,7 @@
+import moment from "moment/moment";
+
 export function getMonthAbbreviation(dateString) {
-  const months = [
-    "JAN",
-    "FEB",
-    "MAR",
-    "APR",
-    "MAY",
-    "JUN",
-    "JUL",
-    "AUG",
-    "SEP",
-    "OCT",
-    "NOV",
-    "DEC",
-  ];
-
-  const date = new Date(dateString);
-  const monthIndex = date.getMonth();
-
-  return months[monthIndex];
+  return moment(dateString).format("MMM").toUpperCase();
 }
 
 export function getDay(dateString) {

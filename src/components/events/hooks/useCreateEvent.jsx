@@ -3,8 +3,11 @@
 import { useUser } from "@/components/user/hooks/useUser";
 import { useState } from "react";
 import { EVENT_URL } from "@/config/apiUrl";
+import { useRouter } from "next/navigation";
 
 export const useCreateEvent = () => {
+  const router = useRouter();
+
   const { user } = useUser();
 
   const [data, setData] = useState({
@@ -33,6 +36,7 @@ export const useCreateEvent = () => {
       body: JSON.stringify(data),
     });
     setLoading(false);
+    router.refresh();
   }
 
   return {

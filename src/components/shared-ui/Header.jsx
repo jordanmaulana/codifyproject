@@ -10,8 +10,8 @@ export const Header = () => {
         <span className="text-lg">vent</span>
       </div>
       <div className="flex gap-8 items-center">
-        <Link href="/events#explore">Explore</Link>
-        <Link href="/">My Events</Link>
+        <Link href="/events#">Explore</Link>
+        <Link href="/events/myevents">My Events</Link>
         <Link href="#footer">Contact Us</Link>
         <CustomAvatar />
       </div>

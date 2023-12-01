@@ -10,6 +10,8 @@ async function getData() {
 
   const res = await fetch(`${EVENT_URL}?userid=${userId}`, {
     method: "GET",
+    cache: "no-store",
+
     headers: {
       "Content-Type": "application/json",
     },

@@ -1,4 +1,5 @@
 "use client";
+import Link from 'next/link'
 
 export const Card = ({ id,
     createdAt,
@@ -27,6 +28,9 @@ export const Card = ({ id,
             <div className="text-sm pt-2">{isBanned}</div>
             <div className="text-sm pt-2">{authorId}</div>
             <div className="text-sm pt-2">{participantsQty}</div>
+            <Link href={`/events/${id}`} className="text-blue-600 underline">
+              View Detail
+            </Link>
         </div>
         </div>
 

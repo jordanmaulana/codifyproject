@@ -19,10 +19,10 @@ export default async function ListEvent() {
     <div>
       <div className="flex justify-between">
         <div className="w-full">
-          <div className="p-2 pl-6 text-lg font-semibold bg-slate-100">
+          <div className="p-2 pl-6 text-lg font-semibold ">
             <h1>Event Lists </h1>
           </div>
-          <div className="flex flex-row justify-center h-screen bg-slate-100">
+          <div className="flex flex-row justify-center h-screen ">
             <div className="max-h-screen">
               <div className="grid grid-cols-1 lg:grid-cols-3 m-1 gap-7">
                 {data?.map((data) => {

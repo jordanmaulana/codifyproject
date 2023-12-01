@@ -24,7 +24,7 @@ export async function EventHeader({ data }) {
 const Content = ({ data }) => {
   if (!data) return <div />;
   return (
-    <div className="p-16 flex gap-16 text-white">
+    <div className="p-16 flex gap-16 text-white justify-center">
       <Image
         src="https://picsum.photos/636/476"
         width={636}

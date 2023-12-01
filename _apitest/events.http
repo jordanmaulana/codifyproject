@@ -24,11 +24,11 @@ POST https://eventmakers-api.vercel.app/api/events
 }
 
 ### Join Event
-POST https://eventmakers-api.vercel.app/api/join-event
+POST https://eventmakers-api.vercel.app/api/join-events
 
 {
     "name": "Bintang di Langit",
     "email": "bintangjos@gmail.com",
     "phone": "085745641231",
-    "eventId": "6f0701e1-d61c-446c-ab04-9503a56ef46d"
+    "eventId": "f4563880-81de-457d-bf19-9ccaf181f1f8"
 }

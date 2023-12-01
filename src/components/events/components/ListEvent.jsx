@@ -1,6 +1,7 @@
 import React from "react";
 import { Card } from "@/components/events/components/Card";
 import { EVENT_URL } from "@/config/apiUrl";
+import Link from "next/link";
 
 async function getEvents() {
   //console.log(GET_EVENT_URL);
@@ -26,20 +27,22 @@ export default async function ListEvent() {
               <div className="grid grid-cols-1 lg:grid-cols-3 m-1 gap-7">
                 {data?.map((data) => {
                   return (
-                    <Card
-                      id={data.id}
-                      createdAt={data.createdAt}
-                      updatedAt={data.updatedAt}
-                      name={data.name}
-                      description={data.description}
-                      location={data.location}
-                      date={data.date}
-                      isBanned={data.isBanned}
-                      authorId={data.authorId}
-                      participants={data.participants}
-                      author={data.author}
-                      participantsQty={data.participants.length}
-                    />
+                    <Link href={`/events/${data.id}`}>
+                      <Card
+                        id={data.id}
+                        createdAt={data.createdAt}
+                        updatedAt={data.updatedAt}
+                        name={data.name}
+                        description={data.description}
+                        location={data.location}
+                        date={data.date}
+                        isBanned={data.isBanned}
+                        authorId={data.authorId}
+                        participants={data.participants}
+                        author={data.author}
+                        participantsQty={data.participants.length}
+                      />
+                    </Link>
                   );
                 })}
               </div>

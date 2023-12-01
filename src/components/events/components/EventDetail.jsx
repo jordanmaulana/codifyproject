@@ -14,6 +14,8 @@ export async function EventDetail({ data }) {
         <main className="p-32 flex gap-16 text-white">
           <Image
             src="https://picsum.photos/800/600"
+            width={800}
+            height={600}
             className="rounded-lg shadow-lg"
           />
           <div className="flex flex-col gap-8 py-8">

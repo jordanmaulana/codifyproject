@@ -1,7 +1,7 @@
 "use client";
 
 import { GradientButton } from "@/components/shared-ui/GradientButton";
-import { Input } from "@nextui-org/react";
+import { Input, Textarea } from "@nextui-org/react";
 import React from "react";
 import { useCreateEvent } from "../hooks/useCreateEvent";
 
@@ -17,7 +17,7 @@ export const CreateEvent = () => {
         className="w-72"
         onChange={handleChange}
       />
-      <Input
+      <Textarea
         name="description"
         type="text"
         label="Description"

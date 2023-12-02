@@ -24,10 +24,10 @@ export default async function ListEvent() {
     <div>
       <EventHeader data={newestEvent} />
       <main id="explore" className="max-w-5xl m-auto mb-16">
-        <h1 className="text-headerText text-4xl font-bold mt-16 mb-2">
+        <h1 className="text-headerText text-4xl font-bold mt-16 mb-2 px-8">
           Upcoming Events
         </h1>
-        <div className="grid grid-cols-1 lg:grid-cols-3 m-1 gap-7 max-h-screen  overflow-y-auto p-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 m-1 gap-7 max-h-screen overflow-y-auto p-8">
           {data?.map((data) => {
             return (
               <Link href={`/events/${data.id}`} key={data.id}>

@@ -34,15 +34,15 @@ export const useLogin = () => {
       body: JSON.stringify({ email, password }),
     });
     const data = await res.json();
-    Cookies.set("token", data.token);
-    Cookies.set("userId", data.data.id);
-    localStorage.setItem("userdata", JSON.stringify(data.data));
-
-    if (!data) {
+    if (res.status !== 200) {
       setLoading(false);
       toast.error("Error login!");
       return;
     }
+
+    Cookies.set("token", data.token);
+    Cookies.set("userId", data.data.id);
+    localStorage.setItem("userdata", JSON.stringify(data.data));
 
     setLoading(false);
     toast.success("Login succesfully, redirecting...");

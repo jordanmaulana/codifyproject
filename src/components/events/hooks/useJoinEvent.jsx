@@ -10,31 +10,26 @@ export const useJoinEvent = (eventId) => {
   const router = useRouter();
   //console.log(evId);
 
-  const { user } = useUser();
-
   const [userData, setUserData] = useState({});
-  //console.log(userData); 
+  //console.log(userData);
 
-  useEffect(()=> {
-      setUserData(localStorage.getItem('userdata'));
-  }, [])
-  //console.log(userData); 
-
-  const [data, setData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    eventId: eventId.eventId,
-  });
-  //console.log(data);
+  useEffect(() => {
+    setUserData(localStorage.getItem("userdata"));
+  }, []);
+  //console.log(userData);
 
   const [loading, setLoading] = useState(false);
 
   async function handleJoinData() {
-    const userdatalocal = JSON.parse( userData );
+    const userdatalocal = JSON.parse(userData);
+    const data = {};
     data.name = userdatalocal.name;
     data.email = userdatalocal.email;
-    //console.log(JSON.stringify(data));
+    data.phone = "-";
+    data.eventId = eventId;
+
+    console.log(JSON.stringify(data));
+
     //console.log(JOIN_EVENT_URL);
     setLoading(true);
     const res = await fetch(JOIN_EVENT_URL, {

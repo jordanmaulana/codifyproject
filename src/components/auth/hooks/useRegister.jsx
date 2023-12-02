@@ -27,9 +27,6 @@ export const useRegister = () => {
   async function handleSubmitRegister(callback) {
     const { name, email, password, retypepassword } = registerData;
     let error = "";
-    console.log(name);
-    console.log(email);
-    console.log(password);
 
     if (!name) error += "Name must not be empty\n";
     if (!email) error += "Email must not be empty\n";

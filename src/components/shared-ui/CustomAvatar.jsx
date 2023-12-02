@@ -11,9 +11,11 @@ import {
   DropdownMenu,
 } from "@nextui-org/react";
 import { ChevronDown } from "lucide-react";
+import { useLogout } from "../auth/hooks/useLogout";
 
 export const CustomAvatar = () => {
   const { user } = useUser();
+  const { loading, handleSubmitLogout } = useLogout();
 
   return (
     <Dropdown>
@@ -44,7 +46,7 @@ export const CustomAvatar = () => {
             </div>
           </div>
         </DropdownItem>
-        <DropdownItem key="logout" className="text-danger mt-2" color="danger">
+        <DropdownItem key="logout" className="text-danger mt-2" color="danger" onClick={handleSubmitLogout}>
           Logout
         </DropdownItem>
       </DropdownMenu>

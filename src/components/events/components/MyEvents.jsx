@@ -12,7 +12,7 @@ export const MyEvents = ({ data }) => {
         <EventHeader />
         <div className="flex gap-16 divide-x-2 items-start">
           <div id="explore" className="mx-24 mb-16 w-full flex-1">
-            <h1 className="text-headerText text-4xl font-bold mt-16 mb-2">
+            <h1 className="text-headerText text-4xl font-bold mt-16 mb-2 px-8">
               My Events
             </h1>
             <div className="grid grid-cols-1 lg:grid-cols-3 m-1 gap-7 max-h-screen overflow-y-auto p-8">
@@ -49,7 +49,7 @@ export const MyEvents = ({ data }) => {
           </div>
 
           <div className="px-24 ">
-            <h1 className="text-headerText text-4xl font-bold mt-16 mb-8">
+            <h1 className="text-headerText text-2xl font-bold mt-16 mb-4">
               Create Event
             </h1>
             <CreateEvent />

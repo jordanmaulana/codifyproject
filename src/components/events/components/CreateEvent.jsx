@@ -47,7 +47,7 @@ export const CreateEvent = () => {
         </label>
       </div>
 
-      <div className="w-72 mt-4">
+      <div className="w-72 mt-2">
         <GradientButton
           title={"SUBMIT"}
           clicked={handleSubmitData}

@@ -92,6 +92,7 @@ export const Register = () => {
           });
         }}
         title={"Register"}
+        loading={loading}
       />
       <div className="flex gap-1 text-sm justify-center">
         <div>Have an account?</div>

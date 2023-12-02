@@ -57,6 +57,7 @@ export const Login = () => {
         isDisabled={loading}
         clicked={handleSubmitLogin}
         title={"Login"}
+        loading={loading}
       />
       <div className="flex gap-1 text-sm justify-center">
         <div>Don't have an account?</div>

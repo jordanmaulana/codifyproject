@@ -52,6 +52,7 @@ export const CreateEvent = () => {
           title={"SUBMIT"}
           clicked={handleSubmitData}
           isDisabled={loading}
+          loading={loading}
         />
       </div>
     </main>

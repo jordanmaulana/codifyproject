@@ -30,9 +30,8 @@ export default async function ListEvent() {
         <div className="grid grid-cols-1 lg:grid-cols-3 m-1 gap-7 max-h-screen  overflow-y-auto p-8">
           {data?.map((data) => {
             return (
-              <Link href={`/events/${data.id}`}>
+              <Link href={`/events/${data.id}`} key={data.id}>
                 <Card
-                  key={data.id}
                   id={data.id}
                   createdAt={data.createdAt}
                   updatedAt={data.updatedAt}

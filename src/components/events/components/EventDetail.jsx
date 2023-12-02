@@ -1,49 +1,75 @@
-"use client";
 import React from "react";
-import Image from "next/image";
-import { Header } from "@/components/shared-ui/Header";
+import { EventHeader } from "./EventHeader";
+import Link from "next/link";
+
 import { Footer } from "@/components/shared-ui/Footer";
+import Image from "next/image";
+import { cookies } from "next/headers";
 import { Button } from "@nextui-org/react";
-import { Calendar, MapPin } from "lucide-react";
-import { JoinEvent } from "./JoinEvent";
 
+export function EventDetail({ data }) {
+  const cookieStore = cookies();
+  const userId = cookieStore.get("userId").value;
 
-export async function EventDetail({ data }) {
-  //console.log({data});
-  return (
-    <div className="relative bg-gradient-to-br from-pink via-purple to-purple ">
-      <div className="relative z-10">
-        <Header />
-        <main className="p-32 flex gap-16 text-white">
-          <Image
-            src="https://picsum.photos/800/600"
-            width={800}
-            height={600}
-            className="rounded-lg shadow-lg"
-          />
-          <div className="flex flex-col gap-8 py-8">
-            <div className="text-5xl font-bold">{data?.name}</div>
-            <div>{data?.description}</div>
+  const isMyEvent = data.authorId === userId;
 
-            <div className="flex gap-4">
-              <div className="flex gap-2">
-                <Calendar />
-                {data?.date}
-              </div>
-              <div className="flex gap-2">
-                <MapPin />
-                {data?.location}
-              </div>
+  let participants = <div />;
+  if (isMyEvent) {
+    participants = (
+      <div className="my-8 px-8">
+        <div className="text-headerText text-2xl font-bold">
+          Participants: {data.participants.length}
+        </div>
+        <div className="grid grid-cols-8 mt-2">
+          {data.participants.length > 0 ? (
+            data?.participants.map((person) => {
+              return <div>{person.name}</div>;
+            })
+          ) : (
+            <div>
+              You don't have any participants yet. You can cry in the corner T_T
             </div>
-            <JoinEvent eventId={data?.id}/>
-            
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <EventHeader data={data} />
+      {participants}
+      <div className="mt-16 flex justify-center gap-8  items-end relative">
+        <Image src="/meeting.png" width={545} height={303} />
+        <div>
+          <div className="text-4xl font-bold">
+            {isMyEvent ? (
+              <span>Create more interesting event!</span>
+            ) : (
+              <span>Make your own event!</span>
+            )}
           </div>
-        </main>
-        <Footer />
+          <div className="max-w-md mt-2">
+            {isMyEvent ? (
+              <span>
+                Looks like you're doing great! Wanna try something new? 🚀✨
+              </span>
+            ) : (
+              <span>
+                Get ready to unleash your creativity, make waves, and own the
+                spotlight in your very own blockbuster event! 🚀✨
+              </span>
+            )}
+          </div>
+          <Link href={"/events/myevents"}>
+            <Button className="bg-red w-72 h-14 text-white rounded-[50px] font-bold mt-5 mb-8">
+              Create Event
+            </Button>
+          </Link>
+        </div>
+        <div className="w-full h-64 bg-lightPurple absolute bottom-0 -z-10" />
       </div>
-      <div className="absolute top-0 w-full h-full opacity-10 -z-0">
-        <Image src="/banner_bg.png" fill className="object-cover" alt="" />
-      </div>
+      <Footer />
     </div>
   );
 }

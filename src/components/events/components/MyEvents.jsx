@@ -19,9 +19,8 @@ export const MyEvents = ({ data }) => {
               {data.length > 0 ? (
                 data?.map((data) => {
                   return (
-                    <Link href={`/events/${data.id}`}>
+                    <Link href={`/events/${data.id}`} key={data.id}>
                       <Card
-                        key={data.id}
                         id={data.id}
                         createdAt={data.createdAt}
                         updatedAt={data.updatedAt}
